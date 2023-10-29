@@ -13,16 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // hasMany    One-to-many association
       // belongsToMany Many-to-Many associations
       // ---->This is only for the one to one relationShip
-      this.belongsTo(models.UserDetail, {
-        foreignKey: "userId",
-        as: "UserDetailData",
-      });
-      // ---->This is only for the one to one relationShip
-      // ---->This is only for the one to Many relationShip
-      // this.hasMany(models.UserDetail, {
+      // this.belongsTo(models.UserDetail, {
       //   foreignKey: "userId",
       //   as: "UserDetailData",
       // });
+      // this.belongsToMany(models.UserDetail, {
+      //   foreignKey: "userId",
+      //   as: "UserDetailData",
+      // });
+
+      // ---->This is only for the one to one relationShip
+      // ---->This is only for the one to Many relationShip
+      this.hasMany(models.UserDetail, {
+        foreignKey: "userId",
+        as: "userDetailwork",
+      });
       // this.belongsToMany(models.UserDetail, {
       //   through: models.UserAllDetail,
       //   // foreignKey: "userId",

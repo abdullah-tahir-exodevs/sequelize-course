@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { UserDetail, User, sequelize } = require("../models");
 const { Op, Sequelize } = require("sequelize");
+const userdetail = require("../models/userdetail");
 router.post("/create", async (req, res) => {
   try {
     const data = await UserDetail.create({
@@ -21,12 +22,13 @@ router.post("/create", async (req, res) => {
     });
   }
 });
-router.post("/getall", async (req, res) => {
+router.get("/getall", async (req, res) => {
   try {
     const data = await UserDetail.findAll({
       include: [
         {
           model: User,
+          as:"userDetailwork"
         },
       ],
     });

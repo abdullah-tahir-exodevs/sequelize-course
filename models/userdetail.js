@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       // foreignKey: "userId",
       // targetKey: "id",
       // });
+      this.hasMany(models.User, {
+        foreignKey: "userId",
+        as: "userDetailwork",
+      });
     }
   }
   UserDetail.init(
@@ -25,6 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       address: DataTypes.STRING,
       FatherName: DataTypes.STRING,
       MotherName: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,

@@ -119,7 +119,6 @@ router.post("/setterexample", async (req, res) => {
       firstName: "Abdullah",
       lastName: "Abdullah",
       email: "Abdullah@gmail.com",
-      userId: 1,
     });
     res.status(200).json({
       message: "fetch only two colums",
@@ -143,8 +142,12 @@ router.post("/setterexample", async (req, res) => {
 router.get("/populatethetable", async (req, res) => {
   try {
     const resp = await User.findAll({
-      include: [{model: UserDetail,
-      as:"UserDetailData"}],
+      include: [
+        {
+          model: UserDetail,
+          as: "userDetailwork",
+        },
+      ],
     });
     res.status(200).json({
       message: "fetch only two colums",
