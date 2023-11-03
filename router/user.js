@@ -145,7 +145,7 @@ router.get("/populatethetable", async (req, res) => {
       include: [
         {
           model: UserDetail,
-          as: "userDetailwork",
+          as: "UserDetailId",
         },
       ],
     });

@@ -17,6 +17,6 @@ app.use("/userdetail", userDetail);
 app.use("/useralldetail", userAllDetail);
 
 app.listen(PORT, async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
   console.log("The server is running on", PORT);
 });

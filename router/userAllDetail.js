@@ -4,8 +4,8 @@ const { UserAllDetail, User, sequelize } = require("../models");
 router.post("/create", async (req, res) => {
   try {
     const data = await UserAllDetail.create({
-      UserId: 1,
-      UserDetailId: 1,
+      UserId: 2,
+      UserDetailId: 3,
     });
     res.status(200).json({
       message: "The data is posted",
@@ -17,16 +17,9 @@ router.post("/create", async (req, res) => {
     });
   }
 });
-router.post("/getall", async (req, res) => {
+router.get("/getall", async (req, res) => {
   try {
-    const data = await UserAllDetail.findAll({
-      include: [
-        {
-          model: User,
-          as: "userDetailwork",
-        },
-      ],
-    });
+    const data = await UserAllDetail.findAll({});
     res.status(200).json({
       message: "The data is posted",
       data: data,

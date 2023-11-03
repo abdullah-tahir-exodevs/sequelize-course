@@ -24,14 +24,14 @@ module.exports = (sequelize, DataTypes) => {
 
       // ---->This is only for the one to one relationShip
       // ---->This is only for the one to Many relationShip
-      this.hasMany(models.UserDetail, {
-        foreignKey: "userId",
-        as: "userDetailwork",
-      });
-      // this.belongsToMany(models.UserDetail, {
-      //   through: models.UserAllDetail,
-      //   as: "UserDetailId",
+      // this.hasMany(models.UserDetail, {
+      //   foreignKey: "userId",
+      //   as: "userDetailwork",
       // });
+      this.belongsToMany(models.UserDetail, {
+        through: models.UserAllDetail,
+        as: "UserDetailId",
+      });
     }
     // ---->This is only for the one to Many relationShip
   }
@@ -73,7 +73,6 @@ module.exports = (sequelize, DataTypes) => {
 
         // },
       },
-    
     },
     {
       sequelize,
