@@ -42,6 +42,11 @@ router.get("/getusercount", async (req, res) => {
         firstName: "Abdullah",
       },
     });
+    User.addScope("test", {
+      where: {
+        firstName: "Abdullah",
+      },
+    });
     // const resp = await User.count();
     // res.status(200).json({
     //   message: "I get all data",
