@@ -13,14 +13,14 @@ module.exports = (sequelize, DataTypes) => {
       //   foreignKey: "userId",
       //   as: "UserDetailData",
       // });
-      this.belongsToMany(models.User, {
-        through: models.UserAllDetail,
-       as: "UserId",
-      });
-      // this.hasMany(models.User, {
-      //   foreignKey: "userId",
-      //   as: "userDetailwork",
+      // this.belongsToMany(models.User, {
+      //   through: models.UserAllDetail,
+      //  as: "UserId",
       // });
+      this.belongsTo(models.User, {
+        foreignKey: "userId",
+        as: "userDetailwork",
+      });
     }
   }
   UserDetail.init(

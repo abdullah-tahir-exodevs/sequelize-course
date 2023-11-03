@@ -23,7 +23,7 @@ router.post("/getall", async (req, res) => {
       include: [
         {
           model: User,
-          as: "UserDetailData",
+          as: "userDetailwork",
         },
       ],
     });

@@ -28,7 +28,7 @@ router.get("/getall", async (req, res) => {
       include: [
         {
           model: User,
-          as:"UserId"
+          as:"userDetailwork"
         },
       ],
     });
