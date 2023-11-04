@@ -13,14 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       //   foreignKey: "userId",
       //   as: "UserDetailData",
       // });
-      this.belongsToMany(models.User, {
-        through: models.UserAllDetail,
-        as: "UserId",
-      });
-      // this.belongsTo(models.User, {
-      //   foreignKey: "userId",
-      //   as: "userDetailwork",
+      // this.belongsToMany(models.User, {
+      //   through: models.UserAllDetail,
+      //   as: "UserId",
       // });
+      this.belongsTo(models.User, {
+        foreignKey: "userId",
+      });
     }
   }
   UserDetail.init(
@@ -28,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       address: DataTypes.STRING,
       FatherName: DataTypes.STRING,
       MotherName: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,

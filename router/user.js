@@ -120,11 +120,22 @@ router.get("/virtualcolumn", async (req, res) => {
 });
 router.post("/setterexample", async (req, res) => {
   try {
-    const resp = await User.create({
-      firstName: "Abdullah",
-      lastName: "Abdullah",
-      email: "Abdullah@gmail.com",
-    });
+    const resp = await User.create(
+      {
+        firstName: "Sidra",
+        lastName: "Tahir",
+        email: "sidraTahir001@gmail.com",
+        UserDetails: {
+          address:
+            "H#53 Stno# 8 Sirsyed chowk Rajput Colony Rawalpindi.Pakistan",
+          FatherName: "Tahir Mehmood",
+          MotherName: "Kausar",
+        },
+      },
+      {
+        include: [UserDetail],
+      }
+    );
     res.status(200).json({
       message: "fetch only two colums",
       data: resp,
@@ -140,7 +151,7 @@ router.post("/setterexample", async (req, res) => {
     //   }
     // });
     res.status(400).json({
-      message: error,
+      error: error?.response?.data?.message || error.message,
     });
   }
 });
