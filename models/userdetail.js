@@ -20,6 +20,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User, {
         foreignKey: "userId",
       });
+      this.belongsTo(models.User, {
+        foreignKey: "userId",
+        scope: {
+          commentableType: "image",
+        },
+      });
     }
   }
   UserDetail.init(

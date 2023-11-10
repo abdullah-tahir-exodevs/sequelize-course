@@ -122,12 +122,12 @@ router.post("/setterexample", async (req, res) => {
   try {
     const resp = await User.create(
       {
-        firstName: "Sidra",
+        firstName: "Qasim",
         lastName: "Tahir",
-        email: "sidraTahir001@gmail.com",
+        email: "QasimTahir001@gmail.com",
         UserDetails: {
           address:
-            "H#53 Stno# 8 Sirsyed chowk Rajput Colony Rawalpindi.Pakistan",
+            "Excelorithm PVT LIMITED MURREE ROAD SIGIAL PLAZA RAWALPINDI.Pakistan",
           FatherName: "Tahir Mehmood",
           MotherName: "Kausar",
         },
@@ -161,7 +161,6 @@ router.get("/populatethetable", async (req, res) => {
       include: [
         {
           model: UserDetail,
-          as: "UserDetailId",
         },
       ],
     });

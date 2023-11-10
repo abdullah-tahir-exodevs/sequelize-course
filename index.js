@@ -6,6 +6,7 @@ require("./models/index");
 const user = require("./router/user.js");
 const userDetail = require("./router/userDetail.js");
 const userAllDetail = require("./router/userAllDetail.js");
+const image = require("./router/imageroute");
 
 // User.sync({ force: true });
 const PORT = 4041;
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/user", user);
 app.use("/userdetail", userDetail);
+app.use("/image", image);
 app.use("/useralldetail", userAllDetail);
 
 app.listen(PORT, async () => {
